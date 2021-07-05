@@ -14,6 +14,6 @@ namespace MemoryOptimizationProblem
         /// Player's inventory.
         /// </summary>
         public List<string> Inventory { get; } = new List<string>()
-        { "Potion", "Hi-Potion", "Phoenix Sown", "Soft", "Ether", "Hi-Ether", "Longsword", "Ultima Weapon", "Wooden Buckler", "Buster Sword", "Muramasa"};
+        { "Potion", "Hi-Potion", "Phoenix Down", "Soft", "Ether", "Hi-Ether", "Longsword", "Ultima Weapon", "Wooden Buckler", "Buster Sword", "Muramasa"};
     }
 }
