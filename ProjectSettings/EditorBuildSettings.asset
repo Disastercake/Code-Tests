@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Problems/Start Scene.unity
+    guid: 73c41a1d863506b4ca9d2e384be92418
+  - enabled: 1
+    path: Assets/Problems/Problem 1 - Fun With Rectangles/Scene - Fun With Rectangles.unity
+    guid: c93b58d2ac6c3ed43bfb2502e5504af8
+  - enabled: 1
+    path: Assets/Problems/Problem 2 - Memory Optimization/Scene - Optimize.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Problems/Problem 3 - Dangerous Seagulls/Scene - Dangerous Seagulls.unity
+    guid: 40749a5c5ebfe5748bba28e4e758126f
+  - enabled: 1
+    path: Assets/Problems/Problem 4 - Man Eating Fish/Scene - Man Eating Fish.unity
+    guid: 56ca28f89a9abeb4c9ff910cf076ccc7
+  - enabled: 1
+    path: Assets/Problems/Problem 5 - Magical Inheritance/Scene - Magical Inheritance.unity
+    guid: cab6917ad45238c4093749a2afd41abd
+  - enabled: 1
+    path: Assets/Problems/Problem 6 - Exspiravit Ex Machina/Scene - Exspiravit Ex
+      Machina.unity
+    guid: b383de3a51e17d44d8288b9f7570fd1a
+  m_configObjects: {}
