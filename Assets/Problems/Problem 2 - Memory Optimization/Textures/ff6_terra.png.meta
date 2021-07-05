@@ -144,7 +144,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1
         y: 7
-        width: 31
+        width: 30
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: terra_victory_02
       rect:
         serializedVersion: 2
-        x: 34
+        x: 32
         y: 7
         width: 30
-        height: 50
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

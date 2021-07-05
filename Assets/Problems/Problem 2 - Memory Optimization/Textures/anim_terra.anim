@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: anim_terra_victory
+  m_Name: anim_terra
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,7 +22,7 @@ AnimationClip:
     - time: 0
       value: {fileID: -2111025421857462408, guid: 65c52553f34153a43926f58083c9e939, type: 3}
     - time: 0.083333336
-      value: {fileID: 1509352949855726710, guid: 65c52553f34153a43926f58083c9e939, type: 3}
+      value: {fileID: -1705326707620516989, guid: 65c52553f34153a43926f58083c9e939, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -43,7 +43,7 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: -2111025421857462408, guid: 65c52553f34153a43926f58083c9e939, type: 3}
-    - {fileID: 1509352949855726710, guid: 65c52553f34153a43926f58083c9e939, type: 3}
+    - {fileID: -1705326707620516989, guid: 65c52553f34153a43926f58083c9e939, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
