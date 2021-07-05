@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Problems/Start Scene.unity
+    path: Assets/Start Scene.unity
     guid: 73c41a1d863506b4ca9d2e384be92418
+  - enabled: 1
+    path: Assets/Problems/Title Menu/Title Menu.unity
+    guid: fda427b3ae0e0f34d99add81d41c08f8
   - enabled: 1
     path: Assets/Problems/Problem 1 - Fun With Rectangles/Scene - Fun With Rectangles.unity
     guid: c93b58d2ac6c3ed43bfb2502e5504af8
