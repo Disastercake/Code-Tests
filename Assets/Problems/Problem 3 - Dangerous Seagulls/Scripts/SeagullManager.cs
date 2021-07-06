@@ -107,9 +107,19 @@ namespace DangerousSeagulls
             return highest;
         }
 
+        public static CommonScripts.NameGenerator NAME_GENERATOR
+        {
+            get
+            {
+                return Instance._nameGenerator;
+            }
+        }
+
         #endregion
 
         #region Instance Members and Methods
+
+        private CommonScripts.NameGenerator _nameGenerator { get; } = new CommonScripts.NameGenerator();
 
         private void Awake()
         {

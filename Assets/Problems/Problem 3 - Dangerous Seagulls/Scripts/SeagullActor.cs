@@ -8,9 +8,7 @@ namespace DangerousSeagulls
     [DisallowMultipleComponent]
     [RequireComponent(typeof(SpriteRenderer))]
     public class SeagullActor : MonoBehaviour, UnityEngine.EventSystems.IPointerClickHandler
-    {
-        private static CommonScripts.NameGenerator NAME_GENERATOR { get; } = new CommonScripts.NameGenerator();
-        
+    {        
         public int BaseDanger { get { return _SeagullData.BaseDanger; } }
 
         public string SeagullName
@@ -116,7 +114,7 @@ namespace DangerousSeagulls
 
         private void GenerateName()
         {
-            _SeagullData.Name = NAME_GENERATOR.GetName();
+            _SeagullData.Name = SeagullManager.NAME_GENERATOR.GetName();
             gameObject.name = _SeagullData.Name;
         }
 
