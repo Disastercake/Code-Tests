@@ -105,11 +105,15 @@ namespace DangerousSeagulls
 
         private void Awake()
         {
-            GenerateName();
             GenerateStartingDanger();
             _sr = GetComponent<SpriteRenderer>();
             SeagullManager.AddSeagull(this);
             UpdateBaseDanger();
+        }
+
+        private void Start()
+        {
+            GenerateName();
         }
 
         private void GenerateName()
