@@ -26,18 +26,22 @@ namespace CommonScripts
                 DontDestroyOnLoad(gameObject);
                 _backBut.onClick.AddListener(OnBackButton);
                 _backBut.gameObject.SetActive(false);
+
+                UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnLevelFinishedLoading;
             }
         }
 
         private void OnDestroy()
         {
             _backBut.onClick.RemoveListener(OnBackButton);
+
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnLevelFinishedLoading;
         }
 
-        private void OnLevelWasLoaded(int level)
+        private void OnLevelFinishedLoading(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
         {
             // Don't show back button at start scene or the title scene.
-            _backBut.gameObject.SetActive(level > 1);
+            _backBut.gameObject.SetActive(scene.buildIndex > 1);
         }
 
         public void OnBackButton()
