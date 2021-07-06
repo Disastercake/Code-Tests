@@ -8,7 +8,9 @@ namespace DangerousSeagulls
     [DisallowMultipleComponent]
     [RequireComponent(typeof(SpriteRenderer))]
     public class SeagullActor : MonoBehaviour, UnityEngine.EventSystems.IPointerClickHandler
-    {        
+    {
+        #region Public Interface
+
         public int BaseDanger { get { return _SeagullData.BaseDanger; } }
 
         public string SeagullName
@@ -18,19 +20,10 @@ namespace DangerousSeagulls
                 return _SeagullData.Name;
             }
         }
-
-        private bool _dangerColorOn = false;
-
-        private SpriteRenderer _sr = null;
-
-        private Seagull _SeagullData = new Seagull(0);
         public Seagull GetSeagullData()
         {
             return _SeagullData;
         }
-
-        [SerializeField]
-        private List<SeagullActor> _friends = new List<SeagullActor>();
         public SeagullActor[] Friends
         {
             get
@@ -40,15 +33,6 @@ namespace DangerousSeagulls
 
                 return _friends.ToArray();
             }
-        }
-
-        /// <summary>
-        /// Adds a friend to the list.  This needs to be private so that the static method MakeFriends can ensure a mutual connection.
-        /// </summary>
-        private void AddFriend(SeagullActor friend)
-        {
-            if (!_friends.Contains(friend))
-                _friends.Add(friend);
         }
 
         public static void MakeFriends(SeagullActor gullA, SeagullActor gullB)
@@ -103,6 +87,32 @@ namespace DangerousSeagulls
             _sr.color = _dangerColorOn ? Color.red : Color.white;
         }
 
+        #endregion
+
+        #region Private Members
+
+        private bool _dangerColorOn = false;
+
+        private SpriteRenderer _sr = null;
+
+        private Seagull _SeagullData = new Seagull(0);
+
+        [SerializeField]
+        private List<SeagullActor> _friends = new List<SeagullActor>();
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Adds a friend to the list.  This needs to be private so that the static method MakeFriends can ensure a mutual connection.
+        /// </summary>
+        private void AddFriend(SeagullActor friend)
+        {
+            if (!_friends.Contains(friend))
+                _friends.Add(friend);
+        }
+
         private void Awake()
         {
             GenerateStartingDanger();
@@ -137,11 +147,6 @@ namespace DangerousSeagulls
             _SeagullData.BaseDanger = BaseDanger;
         }
 
-        void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
-        {
-            SeagullCanvas.SelectActor(this);
-        }
-
         public void OnSelect()
         {
             _sr.color = Color.yellow;
@@ -151,5 +156,12 @@ namespace DangerousSeagulls
         {
             _sr.color = _dangerColorOn ? Color.red : Color.white;
         }
+
+        void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+        {
+            SeagullCanvas.SelectActor(this);
+        }
+
+        #endregion
     }
 }
