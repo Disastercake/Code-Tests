@@ -14,7 +14,7 @@ namespace CommonScripts
             "Jingle", "Lovebug", "Zahra", "Uppy", "Vegan", "Yuffie", "Sora", "Shiro", "Kuro", "Franky"
         };
 
-        private static List<string> NAME_POOL = new List<string>(NAME_LIST) { };
+        private List<string> NAME_POOL = new List<string>(NAME_LIST) { };
 
         /// <summary>
         /// Resets the list of names.
