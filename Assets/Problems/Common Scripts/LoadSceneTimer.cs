@@ -12,12 +12,14 @@ namespace CommonScripts
 
         void Start()
         {
-            Invoke("LoadScene", TimeToLoad);
+            StartCoroutine(LoadScene());
         }
 
-        private void LoadScene()
+        private IEnumerator LoadScene()
         {
+            yield return Yielders.WaitReal(TimeToLoad);
             UnityEngine.SceneManagement.SceneManager.LoadScene(SceneIndex);
+            yield break;
         }
     }
 }
