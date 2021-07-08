@@ -7,7 +7,7 @@ namespace MemoryOptimizationProblem
     [DisallowMultipleComponent]
     public class VictoryCanvas : MonoBehaviour
     {
-        private static readonly WaitForSeconds _wait = new WaitForSeconds(2f);
+        private const float CYCLE_DELAY = 2f;
 
         [SerializeField]
         private TMPro.TextMeshProUGUI _text = null;
@@ -32,7 +32,7 @@ namespace MemoryOptimizationProblem
                     string t = string.Format("You found {0}!", inv[i]);
                     _text.text = t;
                     _textDropShadow.text = t;
-                    yield return _wait;
+                    yield return CommonScripts.Yielders.WaitScaled(CYCLE_DELAY);
                 }
 
             } while (true);
