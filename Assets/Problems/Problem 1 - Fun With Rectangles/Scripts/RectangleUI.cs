@@ -21,6 +21,8 @@ namespace FunWithRectangles
 
         private void Awake()
         {
+            RefreshUI(_lastStatus);
+
             _sprite1.Rect.OnRectChanged += CheckOverlap;
             _sprite2.Rect.OnRectChanged += CheckOverlap;
         }
@@ -38,8 +40,13 @@ namespace FunWithRectangles
             if (_lastStatus != overlapped)
             {
                 _lastStatus = overlapped;
-                _label_status.text = _lastStatus ? MSG_OVERLAPPED : MSG_NOT_OVERLAPPED;
+                RefreshUI(_lastStatus);
             }
+        }
+
+        private void RefreshUI(bool overlapped)
+        {
+            _label_status.text = overlapped ? MSG_OVERLAPPED : MSG_NOT_OVERLAPPED;
         }
     }
 }
