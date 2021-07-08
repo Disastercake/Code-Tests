@@ -18,11 +18,6 @@ namespace MemoryOptimizationProblem
         private const float delay = 1;
 
         /// <summary>
-        /// Cache this, as WaitForSeconds is reusable and the time is constant.
-        /// </summary>
-        private WaitForSeconds wait = new WaitForSeconds(delay);
-
-        /// <summary>
         /// Prints entire inventory to a single debug log.
         /// </summary>
         public void PrintInventory()
@@ -63,7 +58,7 @@ namespace MemoryOptimizationProblem
             for (int i = 0; i < inv.Length; i++)
             {
                 Debug.Log(inv[i]);
-                yield return wait;
+                yield return CommonScripts.Yielders.WaitScaled(delay);
             }
 
             yield break;
