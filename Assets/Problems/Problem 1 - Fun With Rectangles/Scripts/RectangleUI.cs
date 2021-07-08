@@ -33,8 +33,6 @@ namespace FunWithRectangles
 
         private void CheckOverlap(Rectangle r)
         {
-            Debug.Log("Checking...");
-
             var overlapped = Rectangle.IsOverlap(_sprite1.Rect, _sprite2.Rect);
 
             if (_lastStatus != overlapped)
