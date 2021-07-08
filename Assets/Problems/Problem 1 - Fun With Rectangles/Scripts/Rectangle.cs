@@ -48,7 +48,7 @@ namespace FunWithRectangles
         /// <summary>
         /// Broadcast when the position or size of the Rect is changed.
         /// </summary>
-        public event RectChangedHandler OnRectChanged = delegate { };
+        public event RectChangedHandler OnRectChanged;
 
         #endregion
 
@@ -75,7 +75,7 @@ namespace FunWithRectangles
             Width = width;
             Height = height;
 
-            OnRectChanged.Invoke(this);
+            OnRectChanged?.Invoke(this);
         }
 
         #endregion
