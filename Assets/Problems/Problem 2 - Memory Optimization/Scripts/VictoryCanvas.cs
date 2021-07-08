@@ -7,9 +7,6 @@ namespace MemoryOptimizationProblem
     [DisallowMultipleComponent]
     public class VictoryCanvas : MonoBehaviour
     {
-        [SerializeField]
-        private AudioSource _music = null;
-
         private static readonly WaitForSeconds _wait = new WaitForSeconds(2f);
 
         [SerializeField]
