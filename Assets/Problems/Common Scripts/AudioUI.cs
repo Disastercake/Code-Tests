@@ -7,6 +7,8 @@ namespace CommonScripts
 {
     public class AudioUI : MonoBehaviour
     {
+        private static float _globalVolume = 0.5f;
+
         [SerializeField]
         private UnityEngine.Audio.AudioMixer _mainMixer = null;
 
@@ -15,20 +17,22 @@ namespace CommonScripts
 
         private void Awake()
         {
-            _slider.value = .5f;
+            _slider.value = _globalVolume;
             _slider.onValueChanged.AddListener(OnSliderChange);
             UpdateSound(_slider.value);
         }
 
         public void OnSliderChange(float value)
         {
-            UpdateSound(value);
+            UpdateSound(Mathf.Clamp01(value));
         }
 
         private void UpdateSound(float value)
         {
-            if (value > 0f)
-                _mainMixer.SetFloat("MasterVolume", Mathf.Lerp(-30f, -15f, value));
+            _globalVolume = value;
+
+            if (_globalVolume > 0f)
+                _mainMixer.SetFloat("MasterVolume", Mathf.Lerp(-30f, -15f, _globalVolume));
             else
                 _mainMixer.SetFloat("MasterVolume", -80f);
         }
