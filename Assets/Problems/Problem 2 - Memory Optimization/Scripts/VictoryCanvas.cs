@@ -24,6 +24,10 @@ namespace MemoryOptimizationProblem
             // Cache the inventory so no outside code can edit it while cycling.
             var inv = PlayerData.Instance.Inventory.ToArray();
 
+            // Cache wait.
+            var wait = CommonScripts.Yielders.WaitScaled(CYCLE_DELAY);
+
+            // Infinite loop displaying items.
             do
             {
 
@@ -32,7 +36,7 @@ namespace MemoryOptimizationProblem
                     string t = string.Format("You found {0}!", inv[i]);
                     _text.text = t;
                     _textDropShadow.text = t;
-                    yield return CommonScripts.Yielders.WaitScaled(CYCLE_DELAY);
+                    yield return wait;
                 }
 
             } while (true);
