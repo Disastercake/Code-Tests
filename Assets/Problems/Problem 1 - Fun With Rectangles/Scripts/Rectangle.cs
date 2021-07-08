@@ -4,7 +4,7 @@ namespace FunWithRectangles
 {
     public class Rectangle
     {
-        #region Getters and Member Variables
+        #region Public Getters
 
         public float X { get; private set; } = 0;
         public float Y { get; private set; } = 0;
@@ -41,7 +41,18 @@ namespace FunWithRectangles
 
         #endregion
 
-        #region Setters and Constructors
+        #region Events
+
+        public delegate void RectChangedHandler(Rectangle rect);
+
+        /// <summary>
+        /// Broadcast when the position or size of the Rect is changed.
+        /// </summary>
+        public event RectChangedHandler OnRectChanged = delegate { };
+
+        #endregion
+
+        #region Public Setters and Constructors
 
         public Rectangle()
         {
@@ -55,15 +66,21 @@ namespace FunWithRectangles
 
         public void Set(float x, float y, float width, float height)
         {
+            // If no changes, do nothing.
+            if (X == x && Y == y && Width == width && Height == height)
+                return;
+
             X = x;
             Y = y;
             Width = width;
             Height = height;
+
+            OnRectChanged.Invoke(this);
         }
 
         #endregion
 
-        #region Local Methods
+        #region Private Methods
 
         /// <summary>
         /// Returns true if this and the target Rectangle overlap.

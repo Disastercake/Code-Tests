@@ -19,13 +19,22 @@ namespace FunWithRectangles
 
         private bool _lastStatus = false;
 
-        private void Update()
+        private void Awake()
         {
-            CheckOverlap();
+            _sprite1.Rect.OnRectChanged += CheckOverlap;
+            _sprite2.Rect.OnRectChanged += CheckOverlap;
         }
 
-        private void CheckOverlap()
+        private void OnDestroy()
         {
+            _sprite1.Rect.OnRectChanged -= CheckOverlap;
+            _sprite2.Rect.OnRectChanged -= CheckOverlap;
+        }
+
+        private void CheckOverlap(Rectangle r)
+        {
+            Debug.Log("Checking...");
+
             var overlapped = Rectangle.IsOverlap(_sprite1.Rect, _sprite2.Rect);
 
             if (_lastStatus != overlapped)
