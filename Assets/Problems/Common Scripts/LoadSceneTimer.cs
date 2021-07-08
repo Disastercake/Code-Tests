@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace CommonScripts
 {
+    [DisallowMultipleComponent]
     public class LoadSceneTimer : MonoBehaviour
     {
         public float TimeToLoad = 1f;
@@ -11,12 +12,11 @@ namespace CommonScripts
 
         void Start()
         {
-            StartCoroutine(SceneTimer(TimeToLoad));
+            Invoke("LoadScene", TimeToLoad);
         }
 
-        private IEnumerator SceneTimer(float time)
+        private void LoadScene()
         {
-            yield return new WaitForSeconds(time);
             UnityEngine.SceneManagement.SceneManager.LoadScene(SceneIndex);
         }
     }
