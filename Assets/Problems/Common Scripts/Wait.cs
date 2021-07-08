@@ -16,51 +16,51 @@ using System.Collections.Generic;
 /// </summary>
 public static class Wait
 {
-    #region Private
-
     // These Dictionary's allow for easily caching any possible value for yield times to avoid re-allocating them.
+    private static Dictionary<float, WaitForSeconds> _waitForSeconds = new Dictionary<float, WaitForSeconds>();
+    private static Dictionary<float, WaitForSecondsRealtime> _waitForSecondsRealtime = new Dictionary<float, WaitForSecondsRealtime>();
 
-    static Dictionary<float, WaitForSeconds> _waitForSeconds = new Dictionary<float, WaitForSeconds>();
-    static Dictionary<float, WaitForSecondsRealtime> _waitForSecondsRealtime = new Dictionary<float, WaitForSecondsRealtime>();
-
-    #endregion
-
-    #region Public
-
+    /// <summary>
+    /// Waits until the end of the frame after Unity has rendered every Camera and GUI, just before displaying the frame on screen.
+    /// </summary>
     public static WaitForEndOfFrame ForEndOfFrame { get; } = new WaitForEndOfFrame();
+
+    /// <summary>
+    /// Waits until next fixed frame rate update function. See also: MonoBehaviour.FixedUpdate
+    /// </summary>
     public static WaitForFixedUpdate ForFixedUpdate { get; } = new WaitForFixedUpdate();
 
     /// <summary>
-    /// This uses unscaled time.  It WILL finish waiting even if (Time.timeScale == 0f).
+    /// Suspends the coroutine execution for the given amount of seconds using unscaled time.
+    /// Note: The coroutine will proceed even if (Time.timeScale == 0).
     /// </summary>
     public static WaitForSecondsRealtime ForSecondsRealtime(float seconds)
     {
-        WaitForSecondsRealtime waitClass = null;
+        WaitForSecondsRealtime w = null;
 
-        if (_waitForSecondsRealtime.TryGetValue(seconds, out waitClass) == false)
+        if (_waitForSecondsRealtime.TryGetValue(seconds, out w) == false)
         {
-            waitClass = new WaitForSecondsRealtime(seconds);
-            _waitForSecondsRealtime.Add(seconds, waitClass);
+            w = new WaitForSecondsRealtime(seconds);
+            _waitForSecondsRealtime.Add(seconds, w);
         }
 
-        return waitClass;
+        return w;
     }
 
     /// <summary>
-    /// This uses scaled time.  It will NOT finish waiting if (Time.timeScale == 0f).
+    /// Suspends the coroutine execution for the given amount of seconds using scaled time.
+    /// Note: If (Time.timeScale == 0), then the coroutine will NOT proceed until (Time.timeScale > 0).
     /// </summary>
     public static WaitForSeconds ForSeconds(float seconds)
     {
-        WaitForSeconds waitClass = null;
+        WaitForSeconds w = null;
 
-        if (_waitForSeconds.TryGetValue(seconds, out waitClass) == false)
+        if (_waitForSeconds.TryGetValue(seconds, out w) == false)
         {
-            waitClass = new WaitForSeconds(seconds);
-            _waitForSeconds.Add(seconds, waitClass);
+            w = new WaitForSeconds(seconds);
+            _waitForSeconds.Add(seconds, w);
         }
 
-        return waitClass;
+        return w;
     }
-
-    #endregion
 }
