@@ -25,7 +25,7 @@ namespace MemoryOptimizationProblem
             var inv = PlayerData.Instance.Inventory.ToArray();
 
             // Cache wait.
-            var wait = CommonScripts.Yielders.WaitScaled(CYCLE_DELAY);
+            var wait = Wait.ForSeconds(CYCLE_DELAY);
 
             // Infinite loop displaying items.
             do

@@ -17,7 +17,7 @@ namespace CommonScripts
 
         private IEnumerator LoadScene()
         {
-            yield return Yielders.WaitReal(TimeToLoad);
+            yield return Wait.ForSecondsRealtime(TimeToLoad);
             UnityEngine.SceneManagement.SceneManager.LoadScene(SceneIndex);
             yield break;
         }

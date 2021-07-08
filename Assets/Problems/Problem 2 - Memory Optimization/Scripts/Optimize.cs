@@ -55,10 +55,13 @@ namespace MemoryOptimizationProblem
             // Cache the inventory so no outside code can edit it while cycling.
             var inv = PlayerData.Instance.Inventory.ToArray();
 
+            // Cache wait.
+            var wait = Wait.ForSeconds(delay);
+
             for (int i = 0; i < inv.Length; i++)
             {
                 Debug.Log(inv[i]);
-                yield return CommonScripts.Yielders.WaitScaled(delay);
+                yield return wait;
             }
 
             yield break;
