@@ -38,17 +38,3 @@ namespace MagicalInheritance
         }
     }
 }
-
-/*
-
-Given these 2 classes, Sorcerer and Wizard, create an abstract base class that they both inherit
-from, and refactor them as you see fit.
-
-● Start with classes Sorcerer.cs and Wizards.cs found in folder Problem 5 - Magical Inheritance
-
-● You will be submitting the new base class that you have created as well as your updated versions of Sorcerer.cs and Wizard.cs
-
-
-Can make a hero sheet creation.
-
-*/
